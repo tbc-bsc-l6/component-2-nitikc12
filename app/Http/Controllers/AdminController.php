@@ -18,6 +18,7 @@ class AdminController extends Controller
         $category->category_name = $request->category;
 
         $category->save();
+        toastr()->addSuccess('Category added Successfully');
 
         return redirect()->back();
 
