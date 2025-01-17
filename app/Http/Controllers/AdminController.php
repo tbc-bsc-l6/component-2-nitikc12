@@ -7,7 +7,10 @@ use App\Models\Category;
 class AdminController extends Controller
 {
     public function view_category(){
-        return view('admin.category');
+
+
+        $data = Category::all();
+        return view('admin.category',compact('data'));
     }
 
 
@@ -23,4 +26,17 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
+
+
+    public function delete_category($id)
+    {
+    $data = Category::find($id);
+
+    
+    $data->delete();
+
+    toastr()->timeOut(1000)->closeButton()->addSuccess('Category Deleted Successfully');
+    return redirect()->back();
+    }
+
 }
