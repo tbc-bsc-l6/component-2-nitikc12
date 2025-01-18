@@ -104,4 +104,13 @@ toastr()->timeOut(1000)->closeButton()->addSuccess('Product Added Successfully')
         $product = Product::paginate(3);
         return view('admin.view_product',compact('product'));
      }
+
+     public function delete_product($id){
+        $data = Product::find($id);
+
+        $data->delete();
+
+        return redirect()->back();
+     }
 }
+

@@ -71,12 +71,12 @@
                
 
 
-                <td>d
+                <td>
                     <img height="130" width="130"src="products/{{$products->image}}">
                 </td>
 <!-- 
                 <td><a class="btn btn-danger" href="Delete"></td> -->
-                <td><a class="btn btn-danger" href="{{url('delete_product',$products->id)}}"><i class="fa fa-trash"></i> Delete</a></td>
+                <td><a class="btn btn-danger"onClick="confirmation(event)" href="{{url('delete_product',$products->id)}}"><i class="fa fa-trash"></i> Delete</a></td>
 
 
             </tr>
