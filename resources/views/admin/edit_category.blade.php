@@ -11,6 +11,7 @@
         justify-content: center;
         align-items:center;
         margin:70px;
+        
     }
     input[type='text']
     {

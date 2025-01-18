@@ -93,9 +93,15 @@ class AdminController extends Controller
         }
 
         $data->save();
-d
+toastr()->timeOut(1000)->closeButton()->addSuccess('Product Added Successfully');
 
         return redirect()->back();
 
+     }
+
+     public function view_product()
+     {
+        $product = Product::paginate(3);
+        return view('admin.view_product',compact('product'));
      }
 }
