@@ -70,8 +70,8 @@
                 <td>{{$products->quantity}}</td>
                
 
-sss
-                <td>
+
+                <td>d
                     <img height="130" width="130"src="products/{{$products->image}}">
                 </td>
 <!-- 
