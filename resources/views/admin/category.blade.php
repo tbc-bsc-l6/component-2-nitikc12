@@ -61,12 +61,15 @@
           <table class="table_deg">
             <tr>
               <th>Category Name</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
 
             @foreach($data as $data)
             <tr>
               <td>{{$data->category_name}}</td>
+
+              <td><a class="btn btn-success"href="{{url('edit_category',$data->id)}}">Edit</a></td>
               <td>
                 <!-- Use the confirmation function onClick -->
                 <a class="btn-delete" href="{{url('delete_category', $data->id)}}" onClick="confirmation(event)">Delete</a>
@@ -106,7 +109,7 @@
     </script>
 
     <!-- Include JS files -->
-    <script src="{{asset('admincss/vendor/jquery/jquery.min.js')}}"></script>ss
+    <script src="{{asset('admincss/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admincss/vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('admincss/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('admincss/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>

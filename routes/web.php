@@ -37,3 +37,10 @@ middleware(['auth','admin']);
 
 route::get('delete_category/{id}',[AdminController::class,'delete_category'])->
 middleware(['auth','admin']);
+
+
+route::get('
+edit_category/{id}',[AdminController::class,'edit_category'])->
+middleware(['auth','admin']);
+
+
