@@ -108,9 +108,21 @@ toastr()->timeOut(1000)->closeButton()->addSuccess('Product Added Successfully')
      public function delete_product($id){
         $data = Product::find($id);
 
+        $image_path =public_path('products/'.$data->image);
+
+        if(file_exist($image_path))
+        {
+            unlink($image_path);
+        }
+
         $data->delete();
+        toastr()->timeOut(1000)->closeButton()->addSuccess('Product Deleted Successfully');
 
         return redirect()->back();
      }
+
+
+
+
 }
 
