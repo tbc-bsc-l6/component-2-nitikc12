@@ -122,7 +122,50 @@ toastr()->timeOut(1000)->closeButton()->addSuccess('Product Added Successfully')
      }
 
 
+public function update_product($id){
 
+    $data = Product::find($id);
+
+    $category = Category::all();
+
+    return view('admin.update_page',compact('data','category'));
+}
+
+
+
+public function edit_product(Request $request,$id){
+
+
+    $data = Product::find($id);
+    $data->title = $request->title;
+
+
+    $data->description = $request->description;
+
+    $data->price = $request->price;
+
+    $data->quantity = $request->quantity;
+
+    $image = $request->image;
+
+    if($image)
+    {
+        $imagename = time().'.'.$image->
+                    getClientOriginalExtension();
+
+                    $request->image->move('products',$imagename);
+
+                    $data->image = $imagename;
+    }
+
+    $data->save();
+
+    
+    $data->delete();
+    toastr()->timeOut(1000)->closeButton()->addSuccess('Product Updated Successfully');
+
+    return redirect('/view_product');
+}
 
 }
 
