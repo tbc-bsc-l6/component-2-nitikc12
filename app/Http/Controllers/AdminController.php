@@ -93,7 +93,7 @@ class AdminController extends Controller
         }
 
         $data->save();
-
+d
 
         return redirect()->back();
 
