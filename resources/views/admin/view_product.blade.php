@@ -69,7 +69,7 @@
                 <td>{{$products->price}}</td>
                 <td>{{$products->quantity}}</td>
                
-
+a
 
                 <td>
                     <img height="130" width="130"src="products/{{$products->image}}">
