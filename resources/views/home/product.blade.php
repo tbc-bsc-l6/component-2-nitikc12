@@ -28,7 +28,9 @@
                 </h6>
               </div>
              
-            
+              <div >
+                <a class="btn btn-primary"href="{{url('add_cart',$products->id)}}">Add To Cart</a>
+              </div>
             </a>
           </div>
         </div>

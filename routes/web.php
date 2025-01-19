@@ -68,3 +68,12 @@ middleware(['auth','admin']);
 
 route::get('product_search',[AdminController::class,'product_search'])->
 middleware(['auth','admin']);
+
+
+
+route::get('product_details/{id}',[AdminController::class,'product_details'])->
+middleware(['auth','admin']);
+
+
+route::get('add_cart/{id}',[HomeController::class,'add_cart'])->
+middleware(['auth','verified']);
