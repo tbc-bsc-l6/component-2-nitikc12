@@ -27,7 +27,7 @@
 
 
 
-@include('home.products')
+@include('home.product')
 
 
   <!-- contact section -->
