@@ -31,6 +31,14 @@
         color: white;
         
      }
+
+     input[type='search']
+     {
+      width: 510px;
+      height:60px;
+      margin-left:60px;
+      background-color:#EAD3CD;
+     }
     </style>
   </head>
   <body>
@@ -43,6 +51,12 @@
         <div class="page-header">
           <div class="container-fluid">
           
+          <form action="{{url('product_search')}}" method="get">
+            @csrf
+            <input type="search" name="search">
+            <input type="submit" class="btn btn-secondary" value="Search">
+
+          </form>
 
           <div class ="container">
 
@@ -58,7 +72,7 @@
                 <th>Delete</th>
             </tr>
 
-  @foreach($product as $products)
+              @foreach($product as $products)
             <tr>
                 <td>{{$products->title}}</td>
 

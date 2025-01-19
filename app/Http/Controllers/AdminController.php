@@ -167,5 +167,15 @@ public function edit_product(Request $request,$id){
     return redirect('/view_product');
 }
 
+public function product_search(Request $request)
+{
+    $search = $request->search;
+
+    $product = Product::where('title','LIKE','%'.$search.'%')->
+              paginate(3);
+
+    return view('admin.view_product',compact('product'));
+}
+
 }
 
