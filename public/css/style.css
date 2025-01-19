@@ -69,7 +69,7 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: skyblue;
+  background-color: #efbbcc;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -178,6 +178,17 @@ a:focus {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
+.addcart {
+  background-color: #db4566;
+  color: white;
+  width: 130px; 
+  height: 40px; 
+  font-size: 13px;
+  border-radius: 5px; 
+  text-align: center; 
+  display: inline-block; 
+  line-height: 50px; 
+}
 
 .custom_nav-container .navbar-toggler span::before, .custom_nav-container .navbar-toggler span::after {
   content: "";
@@ -234,8 +245,8 @@ a:focus {
 /*end header section*/
 .slider_section .slider_container {
   color: #fefefe;
-  background-color: #000000;
-  background-color: black;
+  background-color: #f9e7ed;
+ 
   padding: 25px;
   border-radius: 0 0 15px 15px;
 }
@@ -739,12 +750,13 @@ a:focus {
 /* info section */
 .info_section {
   position: relative;
-  background-color: #2d2d2d;
-  color: #ffffff;
+  background-color:  #E9D6D7;;
+  color: black;
   margin: 0 45px 45px;
 }
 
 .info_section .social_container {
+  background-color: #DEA5A4;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -753,6 +765,7 @@ a:focus {
 }
 
 .info_section .social_container .social_box {
+  background-color: #DEA5A4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -766,7 +779,7 @@ a:focus {
 
 .info_section .social_container .social_box a {
   margin: 0 10px;
-  color: #ffffff;
+  color: black;
   font-size: 24px;
 }
 
@@ -780,7 +793,7 @@ a:focus {
   padding: 8px 35px;
   outline: none;
   border: none;
-  color: #ffffff;
+  color: black;
   background: #f89cab;
   margin-top: 15px;
   text-transform: uppercase;
@@ -802,7 +815,7 @@ a:focus {
 }
 
 .info_section p {
-  color: #cbc9c9;
+  color: black;
 }
 
 .info_section .info_link-box a {
@@ -816,21 +829,21 @@ a:focus {
 }
 
 .info_section .info_link-box a:hover {
-  color: #ffffff;
+  color: black;
 }
 
 .info_section .info_link-box a i {
-  color: #ffffff;
+  color: black;
   margin-right: 5px;
   font-size: 18px;
 }
 
 .info_section .info_link-box a span {
-  color: #cbc9c9;
+  color: black;
 }
 
 .info_section .info_link-box a:hover span {
-  color: #ffffff;
+  color: black;
 }
 
 /* end info section */
@@ -844,12 +857,12 @@ a:focus {
   padding: 20px 0;
   margin: 0 auto;
   text-align: center;
-  border-top: 1.5px solid #eeeeee;
+  border-top: 1.5px solid black;
   width: 80%;
 }
 
 .footer_section a {
-  color: #cbc9c9;
+  color: black;
 }
 
 /* end footer section*/

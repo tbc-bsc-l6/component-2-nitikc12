@@ -23,7 +23,7 @@
               ABOUT US
             </h6>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+            At Fast Finds, we’re passionate about offering you [high-quality products, unique services, and expert content] that help make your  and we’re committed to providing you with an exceptional experience.
             </p>
           </div>
           <div class="col-md-6 col-lg-3">
@@ -54,7 +54,7 @@
             <div class="info_link-box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gb road 123 london Uk </span>
+                <span> Thapathali,Kathmandu </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
@@ -62,7 +62,7 @@
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com</span>
+                <span> shop@gmail.com</span>
               </a>
             </div>
           </div>
@@ -74,7 +74,7 @@
       <div class="container">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Web Tech Knowledge</a>
+          <a href="https://html.design/">FastShop</a>
         </p>
       </div>
     </footer>

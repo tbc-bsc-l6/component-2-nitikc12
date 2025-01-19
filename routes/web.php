@@ -6,8 +6,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\ProductController;
 
-Route::get('/', [HomeController::class, 'home']);
+// Route to show the product upload form (GET method)
+Route::get('product/upload', [ProductController::class, 'showUploadForm'])->name('product.upload');
+
+// Route to handle the product upload (POST method)
+Route::post('product/upload', [ProductController::class, 'uploadProduct'])->name('product.upload.post');
+
+
+
+Route::get('/',[HomeController::class, 'home']);
 
 
 Route::get('/dashboard', [HomeController::class, 'login_home'])->
@@ -77,3 +86,11 @@ middleware(['auth','admin']);
 
 route::get('add_cart/{id}',[HomeController::class,'add_cart'])->
 middleware(['auth','verified']);
+
+
+route::get('mycart',[HomeController::class,'mycart'])->
+middleware(['auth','verified']);
+
+
+route::post('view_order',[HomeController::class,'view_order'])->
+middleware(['auth','admin']);

@@ -1,3 +1,4 @@
+
 <section class="shop_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -16,6 +17,8 @@
               <div class="img-box">
                 <img src="products/{{$products->image}}" alt="">
               </div>
+            
+
               <div class="detail-box">
                 <h6>
                   {{$products->title}}
@@ -29,7 +32,7 @@
               </div>
              
               <div >
-                <a class="btn btn-primary"href="{{url('add_cart',$products->id)}}">Add To Cart</a>
+                <a class="addcart"href="{{url('add_cart',$products->id)}}">Add To Cart</a>
               </div>
             </a>
           </div>

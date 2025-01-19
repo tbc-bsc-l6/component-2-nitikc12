@@ -32,16 +32,19 @@ class AdminController extends Controller
     }
 
 
-    public function delete_category($id)
-    {
-    $data = Category::find($id);
+    // public function delete_category($id)
+    // {
+    // $data = Category::find($id);
 
     
-    $data->delete();
+    // $data->delete();
 
-    toastr()->timeOut(1000)->closeButton()->addSuccess('Category Deleted Successfully');
-    return redirect()->back();
-    }
+    // toastr()->timeOut(1000)->closeButton()->addSuccess('Category Deleted Successfully');
+    // return redirect()->back();
+    // }
+
+
+    
 
 
     public function edit_category($id)
@@ -66,6 +69,12 @@ class AdminController extends Controller
         $category = Category::all();
         return view('admin.add_product',compact('category'));
      }
+
+
+
+
+
+
 
      public function upload_product(Request $request)
      {
@@ -105,21 +114,36 @@ toastr()->timeOut(1000)->closeButton()->addSuccess('Product Added Successfully')
         return view('admin.view_product',compact('product'));
      }
 
-     public function delete_product($id){
-        $data = Product::find($id);
-
-        $image_path =public_path('products/'.$data->image);
-
-        if(file_exist($image_path))
-        {
-            unlink($image_path);
-        }
-
-        $data->delete();
-        toastr()->timeOut(1000)->closeButton()->addSuccess('Product Deleted Successfully');
-
-        return redirect()->back();
+     public function delete_product($id)
+     {
+         // Find the product by its ID
+         $data = Product::find($id);
+     
+         // Check if the product exists
+         if (!$data) {
+             toastr()->timeOut(1000)->closeButton()->addError('Product not found!');
+             return redirect()->back();
+         }
+     
+         // Get the path to the product image
+         $image_path = public_path('products/'.$data->image);
+     
+         // Check if the image exists, then delete it
+         if (file_exists($image_path)) {
+             unlink($image_path);
+         }
+     
+         // Delete related cart items
+         \App\Models\Cart::where('product_id', $id)->delete();
+     
+         // Now delete the product
+         $data->delete();
+     
+         toastr()->timeOut(1000)->closeButton()->addSuccess('Product Deleted Successfully');
+         
+         return redirect()->back();
      }
+     
 
 
 public function update_product($id){
@@ -133,49 +157,60 @@ public function update_product($id){
 
 
 
-public function edit_product(Request $request,$id){
-
-
+public function edit_product(Request $request, $id)
+{
+    // Find the product by its ID
     $data = Product::find($id);
+
+    // Update the product details
     $data->title = $request->title;
-
-
     $data->description = $request->description;
-
     $data->price = $request->price;
-
     $data->quantity = $request->quantity;
 
+    // Handle the image upload if a new image is provided
     $image = $request->image;
-
-    if($image)
-    {
-        $imagename = time().'.'.$image->
-                    getClientOriginalExtension();
-
-                    $request->image->move('products',$imagename);
-
-                    $data->image = $imagename;
+    if ($image) {
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('products', $imagename);
+        $data->image = $imagename;
     }
 
+    // Save the updated product to the database
     $data->save();
 
-    
-    $data->delete();
+    // Flash success message
     toastr()->timeOut(1000)->closeButton()->addSuccess('Product Updated Successfully');
 
+    // Redirect back to the view product page
     return redirect('/view_product');
 }
 
-public function product_search(Request $request)
+
+
+
+public function uploadProduct(Request $request)
 {
-    $search = $request->search;
+    $request->validate([
+        'title' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-    $product = Product::where('title','LIKE','%'.$search.'%')->
-              paginate(3);
+    // Store the image in the public/products directory
+    $imagePath = $request->file('image')->store('products', 'public'); // Store in public/products
 
-    return view('admin.view_product',compact('product'));
+    $product = new Product();
+    $product->title = $request->input('title');
+    $product->image = $imagePath; // Save image path in database
+    $product->save();
+
+    return redirect()->back()->with('success', 'Product uploaded successfully');
 }
 
+
+public function view_order(){
+    return view('admin.order');
+    
+}
 }
 

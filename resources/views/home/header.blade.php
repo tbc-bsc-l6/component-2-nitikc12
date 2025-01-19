@@ -1,8 +1,17 @@
+<style>
+
+
+
+  </style>
+
+
+
+
 <header class="header_section"> 
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="index.html">
           <span>
-            Giftos
+            Fast Finds
           </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,12 +45,14 @@
           <div class="user_option">
 
 
-          @if (Route::has('login'))
-
+          @if (Route::has('login')) 
+          
           @auth
 
-          <a href="">
+          <a href="{{url('mycart')}}">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              {{ $count ?? 0 }}
+
             </a>
           <form style="padding:12px" method="POST" action="{{ route('logout') }}">
                             @csrf
